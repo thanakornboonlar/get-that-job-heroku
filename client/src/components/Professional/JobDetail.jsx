@@ -9,6 +9,7 @@ import getPublishedDate from "../../utils/getPublishedDate";
 import DateRangeOutlinedIcon from "@mui/icons-material/DateRangeOutlined";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
 import { bigIconCategory } from "../../utils/utilsFunction";
+import { useNavigate } from "react-router-dom";
 
 const DisplayStyle = styled(Stack)(() => ({
   border: "1px solid #BF5F82",
@@ -37,6 +38,8 @@ const CloseButton = styled(Button)(() => ({
 }));
 
 export function JobDetails(props) {
+  const navigate = useNavigate();
+
   const {
     aboutCompany,
     aboutJob,
@@ -81,7 +84,9 @@ export function JobDetails(props) {
         <CloseButton
           variant="button"
           sx={{ padding: "0px", marginBottom: "19px" }}
-          href="/findjobs"
+          onClick={() => {
+            navigate("/findjobs");
+          }}
         >
           <ArrowBackIosNewOutlinedIcon fontSize="small" color="secondary" />
           <Typography

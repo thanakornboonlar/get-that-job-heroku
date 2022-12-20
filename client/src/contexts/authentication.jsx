@@ -19,7 +19,7 @@ function AuthProvider(props) {
 
   const getUserData = async () => {
     const token = localStorage.getItem("token");
-    const userDataFromToken = jwtDecode(token);
+    const userDataFromToken = await jwtDecode(token);
     setState({ ...state, user: userDataFromToken });
     setIsUserLoading(false);
   };

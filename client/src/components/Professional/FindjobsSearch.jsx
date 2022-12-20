@@ -150,11 +150,6 @@ export function Findjobssearch() {
                 height: "50px",
                 borderRadius: "8px",
                 paddindTop: "50px",
-
-                // "& .css-uyzgbr-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
-                //   {
-                //     borderColor: "#F48FB1",
-                //   },
               }}
               renderInput={(params) => (
                 <TextField

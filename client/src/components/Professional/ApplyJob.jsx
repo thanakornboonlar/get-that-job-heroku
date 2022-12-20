@@ -41,6 +41,18 @@ const CheckBoxTextStyled = styled(FormControlLabel)(() => ({
   },
 }));
 
+const CloseButton = styled(Button)(() => ({
+  fontFamily: "var( --inter-font)",
+  fontWeight: "500",
+  fontSize: "14px",
+  borderRadius: "16px",
+  padding: "8px 16px",
+  width: "115px",
+  "& .MuiSvgIcon-root": {
+    fontSize: 28,
+  },
+}));
+
 function Applyjob(props) {
   const { getJobById, getJobByIdData, isLoading, setIsLoading, Apply } =
     usePosts();
@@ -173,7 +185,7 @@ function Applyjob(props) {
             }}
           >
             {/*------------------------------ Back ------------------------------*/}
-            <Button
+            <CloseButton
               variant="button"
               sx={{ padding: "0px", marginBottom: "19px" }}
               onClick={handlerBack}
@@ -186,7 +198,7 @@ function Applyjob(props) {
               >
                 Back
               </Typography>
-            </Button>
+            </CloseButton>
             {/*------------------------------ Job Header ------------------------------*/}
             <Stack
               sx={{

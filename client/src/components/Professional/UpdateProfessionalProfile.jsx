@@ -270,7 +270,31 @@ const UpdateProfessionalProfile = () => {
                   });
                   setValue(newValue);
                 }}
-                renderInput={(params) => <TextField {...params} />}
+                renderInput={(params) => (
+                  <TextField
+                    size="small"
+                    sx={{
+                      "& label.Mui-focused": {
+                        color: "#F48FB1",
+                      },
+                      "& .MuiInput-underline:after": {
+                        borderBottomColor: "#F48FB1",
+                      },
+                      "& .MuiOutlinedInput-root": {
+                        "& fieldset": {
+                          borderColor: "#F48FB1",
+                        },
+                        "&:hover fieldset": {
+                          borderColor: "#F48FB1",
+                        },
+                        "&.Mui-focused fieldset": {
+                          borderColor: "#F48FB1",
+                        },
+                      },
+                    }}
+                    {...params}
+                  />
+                )}
               />
             </LocalizationProvider>
             <OnelineInput {...linkedin} onChange={handlerInputChange} />

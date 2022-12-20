@@ -1,20 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Typography, CircularProgress, Stack } from "@mui/material";
 import usePosts from "../../hooks/usePost";
 import FollowJobWrapper from "./FollowJobWrapper";
 import { useAuth } from "../../contexts/authentication.jsx";
+import JobWrapper from "./JobWrapper";
 
 const UserFollowing = () => {
-  const { isLoading, getFollow, follow } = usePosts();
+  const { isLoading, getFollow, follow, followJob, followJobApplication } =
+    usePosts();
   const { state, getUserData, isUserLoading } = useAuth();
+  const [isFollow, setIsFollow] = useState(true);
+
+  const handlerFollow = (jobId) => {
+    followJobApplication(jobId, state.user["id"]);
+    setIsFollow(false);
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
       getUserData();
-      getFollow(state.user["id"]);
+      const userId = state.user.id;
+      getFollow(userId);
     }, 800);
     return () => clearTimeout(timer);
-  }, [isLoading, isUserLoading]);
+  }, [isLoading, isUserLoading, isFollow]);
 
   return (
     <Box
@@ -71,7 +80,7 @@ const UserFollowing = () => {
           {isLoading === false &&
             follow.map((item, index) => {
               return (
-                <FollowJobWrapper
+                <JobWrapper
                   key={index}
                   img={item.logo_url}
                   category={item.name}
@@ -81,6 +90,8 @@ const UserFollowing = () => {
                   maxSalary={item.max_salary}
                   jobTitle={item.job_title}
                   jobId={item.job_id}
+                  isFollow={true}
+                  handlerFollow={handlerFollow}
                 />
               );
             })}
