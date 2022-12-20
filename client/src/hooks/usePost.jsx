@@ -23,39 +23,35 @@ function usePosts() {
   const navigate = useNavigate();
 
   const createPost = async (data) => {
-    await axios.post(`http://localhost:4000/recruiter/createpost`, data);
+    await axios.post(`/recruiter/createpost`, data);
     navigate("/recruiter/jobpost");
   };
   const getPost = async (recruiterId) => {
-    const results = await axios.get(
-      `http://localhost:4000/recruiter/jobs/${recruiterId}`
-    );
+    const results = await axios.get(`/recruiter/jobs/${recruiterId}`);
     setData(results.data.data);
     setNumberOfJobs(results.data.data.length);
   };
   const closedPost = async (jobId) => {
-    await axios.put(`http://localhost:4000/recruiter/jobs/${jobId}`, []);
+    await axios.put(`/recruiter/jobs/${jobId}`, []);
   };
 
   const selectPost = async (recruiterId, type) => {
     const results = await axios.get(
-      `http://localhost:4000/recruiter/jobs/${recruiterId}?type=${type}`
+      `/recruiter/jobs/${recruiterId}?type=${type}`
     );
     setData(results.data.data);
     setIsLoading(false);
   };
 
   const getJobs = async () => {
-    const results = await axios.get(`http://localhost:4000/professional/jobs/`);
+    const results = await axios.get(`/professional/jobs/`);
     const jobData = results.data.data;
     setGetJobData([...jobData]);
     setIsLoading(false);
   };
 
   const getJobById = async (jobId) => {
-    const results = await axios.get(
-      `http://localhost:4000/professional/jobs/${jobId}`
-    );
+    const results = await axios.get(`/professional/jobs/${jobId}`);
     const jobData = results.data.data;
 
     setGetJobByIdData(jobData);
@@ -76,7 +72,7 @@ function usePosts() {
     let max = maxPrice || "";
     let type1 = type || "";
     const results = await axios.get(
-      `http://localhost:4000/professional/searchjobs/${userId}?maxPrice=${max}&minPrice=${min}&category=${cat}&keywords=${key}&type=${type1}`
+      `/professional/searchjobs/${userId}?maxPrice=${max}&minPrice=${min}&category=${cat}&keywords=${key}&type=${type1}`
     );
 
     setGetJobData(results.data.data);
@@ -84,9 +80,7 @@ function usePosts() {
     setIsLoading(false);
   };
   const getUserprofile = async (recruiterId) => {
-    const results = await axios.get(
-      `http://localhost:4000/recruiter/profile/${recruiterId}`
-    );
+    const results = await axios.get(`/recruiter/profile/${recruiterId}`);
     setProfile(results.data.data);
     setIsLoading(false);
   };
