@@ -117,6 +117,23 @@ export const Textseacrh1 = styled(TextField)(({ theme }) => ({
   },
 }));
 export const Textseacrh2 = styled(TextField)(({ theme }) => ({
+  "& label.Mui-focused": {
+    border: "2px solid #F48FB1",
+  },
+  "& .MuiInput-underline:after": {
+    border: "2px solid #F48FB1",
+  },
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      border: "2px solid #F48FB1",
+    },
+    "&:hover fieldset": {
+      border: "2px solid #F48FB1",
+    },
+    "&.Mui-focused fieldset": {
+      border: "2px solid #F48FB1",
+    },
+  },
   "& ..css-1u3bzj6-MuiFormControl-root-MuiTextField-root": {
     width: "100px",
     height: "40px",
@@ -171,6 +188,23 @@ export const Textseacrhre = styled(TextField)(({ theme }) => ({
 }));
 export const Categoryinput = styled(Autocomplete)(({ theme }) => ({
   width: "280px",
+  "& label.Mui-focused": {
+    border: "2px solid #F48FB1",
+  },
+  "& .MuiInput-underline:after": {
+    border: "2px solid #F48FB1",
+  },
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      border: "2px solid #F48FB1",
+    },
+    "&:hover fieldset": {
+      border: "2px solid #F48FB1",
+    },
+    "&.Mui-focused fieldset": {
+      border: "2px solid #F48FB1",
+    },
+  },
   "& .css-uyzgbr-MuiInputBase-root-MuiOutlinedInput-root": {
     width: "300px",
     height: "45px",

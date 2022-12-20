@@ -134,6 +134,7 @@ export function Createjobpost() {
             {mainInputs.map((input, index) => {
               return (
                 <OnelineInputJobPost
+                  size="small"
                   key={index}
                   {...input}
                   value={info[input.name]}
@@ -207,6 +208,23 @@ export function Createjobpost() {
                 height: "40px",
                 borderRadius: "8px",
                 paddindTop: "0px",
+                "& label.Mui-focused": {
+                  border: "2px solid #F48FB1",
+                },
+                "& .MuiInput-underline:after": {
+                  border: "2px solid #F48FB1",
+                },
+                "& .MuiOutlinedInput-root": {
+                  "& fieldset": {
+                    border: "2px solid #F48FB1",
+                  },
+                  "&:hover fieldset": {
+                    border: "2px solid #F48FB1",
+                  },
+                  "&.Mui-focused fieldset": {
+                    border: "2px solid #F48FB1",
+                  },
+                },
                 "& .css-uyzgbr-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
                   {
                     borderColor: "#F48FB1",
@@ -237,6 +255,7 @@ export function Createjobpost() {
               }}
             >
               <Textseacrh1
+                size="small"
                 id="outlined-basic"
                 variant="outlined"
                 placeholder="min"
@@ -267,6 +286,7 @@ export function Createjobpost() {
               />
 
               <Textseacrh1
+                size="small"
                 id="outlined-basic"
                 variant="outlined"
                 placeholder="max"

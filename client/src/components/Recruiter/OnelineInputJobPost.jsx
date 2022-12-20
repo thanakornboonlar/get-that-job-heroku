@@ -6,7 +6,29 @@ const OnelineInputJobPost = (props) => {
 
   return (
     <>
-      <InputLabelStyle style={{ fontSize: "10px", fontWeight: "500" }}>
+      <InputLabelStyle
+        style={{
+          fontSize: "10px",
+          fontWeight: "500",
+          "& label.Mui-focused": {
+            border: "2px solid #F48FB1",
+          },
+          "& .MuiInput-underline:after": {
+            border: "2px solid #F48FB1",
+          },
+          "& .MuiOutlinedInput-root": {
+            "& fieldset": {
+              border: "2px solid #F48FB1",
+            },
+            "&:hover fieldset": {
+              border: "2px solid #F48FB1",
+            },
+            "&.Mui-focused fieldset": {
+              border: "2px solid #F48FB1",
+            },
+          },
+        }}
+      >
         {label}
       </InputLabelStyle>
       <OnelineTextField
