@@ -49,22 +49,26 @@ export const OnelineTextField = styled(TextField)(() => ({
   width: "350px",
   Height: "36px",
   marginBottom: "16px",
-  "& .MuilinedInput-root": {
+  "& .MuiOutlinedInput-root": {
+    backgroundColor: "#FFFFFF",
     "& fieldset": {
       borderRadius: "8px",
     },
-  },
-  "& .css-1b812tk-MuiInputBase-root-MuiOutlinedInput-root": {
-    backgroundColor: "#FFFFFF",
   },
 }));
 
 export const MultilineTextField = styled(TextField)(() => ({
   width: "600px",
 
+  "& .MuiOutlinedInput-root": {
+    backgroundColor: "#FFFFFF",
+    "& fieldset": {
+      borderRadius: "8px",
+    },
+  },
+
   "& .css-ivu46s-MuiInputBase-root-MuiOutlinedInput-root": {
     padding: "0px",
-    backgroundColor: "#FFFFFF",
   },
   "& .css-1h8391f-MuiFormHelperText-root": {
     marginLeft: "0px",
