@@ -51,9 +51,10 @@ const connectDb = async () => {
 
 //Routes
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "client/build/index.html"));
+// });
+// "proxy": "http://localhost:4000",
 
 app.use("/professional", professionalRouter);
 app.use("/recruiter", recruiterRouter);
