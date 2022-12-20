@@ -26,10 +26,7 @@ function AuthProvider(props) {
 
   const recruiterLogin = async (data) => {
     try {
-      const result = await axios.post(
-        "http://localhost:4000/login_recruiter",
-        data
-      );
+      const result = await axios.post("/login_recruiter", data);
 
       const token = result.data.token;
       localStorage.setItem("token", token);
@@ -50,10 +47,7 @@ function AuthProvider(props) {
 
   const professionalLogin = async (data) => {
     try {
-      const result = await axios.post(
-        "http://localhost:4000/login_professional",
-        data
-      );
+      const result = await axios.post("/login_professional", data);
       const token = result.data.token;
       localStorage.setItem("token", token);
       const userDataFromToken = jwtDecode(token);

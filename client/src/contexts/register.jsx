@@ -10,41 +10,29 @@ function RegisProvider(props) {
   const navigate = useNavigate();
 
   const isProfessionalEmailExist = async (email) => {
-    const result = await axios.get(
-      `http://localhost:4000/login_professional/users/exists/${email}`
-    );
+    const result = await axios.get(`/login_professional/users/exists/${email}`);
     const data = result.data.isEmailExist;
 
     setProfessionalExist(data);
   };
 
   const isRecruiterEmailExist = async (email) => {
-    const result = await axios.get(
-      `http://localhost:4000/login_recruiter/users/exists/${email}`
-    );
+    const result = await axios.get(`/login_recruiter/users/exists/${email}`);
 
     setRecruiterExist(result.data.isEmailExist);
   };
 
   const registerProfessional = async (formData) => {
-    await axios.post(
-      "http://localhost:4000/login_professional/register",
-      formData,
-      {
-        headers: { "Content-Type": "multipart/form-data" },
-      }
-    );
+    await axios.post("/login_professional/register", formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
   };
 
   const registerRecruiter = async (formData) => {
     console.log("woe");
-    await axios.post(
-      "http://localhost:4000/login_recruiter/register",
-      formData,
-      {
-        headers: { "Content-Type": "multipart/form-data" },
-      }
-    );
+    await axios.post("/login_recruiter/register", formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
   };
 
   return (

@@ -92,17 +92,13 @@ function usePosts() {
   };
 
   const getProfessionalUserProfile = async (professionalId) => {
-    const results = await axios.get(
-      `http://localhost:4000/professional/profile/${professionalId}`
-    );
+    const results = await axios.get(`/professional/profile/${professionalId}`);
     setProfessionalProfile(results.data.data);
     setIsLoading(false);
   };
 
   const getFollow = async (professionalId) => {
-    const results = await axios.get(
-      `http://localhost:4000/professional/follow/${professionalId}`
-    );
+    const results = await axios.get(`/professional/follow/${professionalId}`);
 
     setFollow(results.data.data);
     setIsLoading(false);
@@ -114,29 +110,21 @@ function usePosts() {
       professionalId: professionalId,
     };
 
-    await axios.post(
-      `http://localhost:4000/professional/follow/application`,
-      data
-    );
+    await axios.post(`/professional/follow/application`, data);
     setIsLoading(false);
   };
   const getUser = async (professionalId) => {
-    const results = await axios.get(
-      `http://localhost:4000/professional/profile/${professionalId}`
-    );
+    const results = await axios.get(`/professional/profile/${professionalId}`);
     setUserdata(results.data.data);
   };
 
   const Apply = async (jobId, formData) => {
-    await axios.post(
-      `http://localhost:4000/professional/apply/${jobId}`,
-      formData
-    );
+    await axios.post(`/professional/apply/${jobId}`, formData);
     navigate("/applications");
   };
   const UpdateProifleRecruiter = async (recruiterId, formData) => {
     const result = await axios.put(
-      `http://localhost:4000/recruiter/profile/${recruiterId}`,
+      `/recruiter/profile/${recruiterId}`,
       formData,
       {
         headers: { "Content-Type": "multipart/form-data" },
@@ -156,7 +144,7 @@ function usePosts() {
   //Get jobs applications
   const getJobApplications = async (user_id, applicationStatus) => {
     const results = await axios.get(
-      `http://localhost:4000/professional/applications?user_id=${user_id}&status=${applicationStatus}`
+      `/professional/applications?user_id=${user_id}&status=${applicationStatus}`
     );
     setJobApplicationsData(results.data.data);
     setFilterStatus(applicationStatus);
@@ -165,16 +153,14 @@ function usePosts() {
 
   //Decline Application
   const declineApplication = async (applicationId) => {
-    await axios.put(
-      `http://localhost:4000/professional/applications/${applicationId}`
-    );
+    await axios.put(`/professional/applications/${applicationId}`);
     setIsLoading(false);
   };
 
   const UpdateProifleProfessional = async (professionalId, formData) => {
     try {
       const result = await axios.put(
-        `http://localhost:4000/professional/${professionalId}`,
+        `/professional/${professionalId}`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -193,16 +179,14 @@ function usePosts() {
     }
   };
   const Datajob = async (user_id) => {
-    const results = await axios.get(
-      `http://localhost:4000/professional/applications/${user_id}`
-    );
+    const results = await axios.get(`/professional/applications/${user_id}`);
     setJobApplicationsData(results.data.data);
     setIsLoading(false);
   };
 
   const getPostById = async (jobId, applicationStatus) => {
     const results = await axios.get(
-      `http://localhost:4000/recruiter/posts/${jobId}?status=${applicationStatus}`
+      `/recruiter/posts/${jobId}?status=${applicationStatus}`
     );
     const postData = results.data.data;
     const candidatesData = results.data.candidatesData;
@@ -214,7 +198,7 @@ function usePosts() {
   //Change Application Status
   const changeApplicationStatus = async (applicationId, applicationStatus) => {
     await axios.put(
-      `http://localhost:4000/recruiter/applications/status/${applicationId}?status=${applicationStatus}`
+      `/recruiter/applications/status/${applicationId}?status=${applicationStatus}`
     );
     setIsLoading(false);
   };
