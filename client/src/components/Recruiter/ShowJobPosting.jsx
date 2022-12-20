@@ -97,11 +97,12 @@ export function ShowJobPostings() {
   }));
 
   const AccordionSummaryStyled = styled(AccordionSummary)(() => ({
-    "& .css-o4b71y-MuiAccordionSummary-content": {
+    "& .MuiAccordionSummary-content": {
       display: "flex",
       flexDirection: "row",
       justifyContent: "space-between",
-      alignItems: "center",
+      alignItems: "flex-start",
+      width: "100%",
     },
   }));
 
@@ -218,216 +219,234 @@ export function ShowJobPostings() {
           {candidatesData.length} candidates found
         </Typography>
         {/*------------------------------ Start Candidates ------------------------------*/}
-        {candidatesData.map((candidate, index) => {
-          const {
-            application_status,
-            applications_experience,
-            applications_updated_at,
-            applied_at,
-            cv_url,
-            declined_at,
-            education,
-            email,
-            interested_detail,
-            is_upload_cv,
-            job_application_id,
-            job_id,
-            job_title,
-            linkedin,
-            name,
-            phone,
-            professional_created_at,
-            professional_experience,
-            professional_updated_at,
-            company_name,
-          } = candidate;
+        <div>
+          {candidatesData.map((candidate, index) => {
+            const {
+              application_status,
+              applications_experience,
+              applications_updated_at,
+              applied_at,
+              cv_url,
+              declined_at,
+              education,
+              email,
+              interested_detail,
+              is_upload_cv,
+              job_application_id,
+              job_id,
+              job_title,
+              linkedin,
+              name,
+              phone,
+              professional_created_at,
+              professional_experience,
+              professional_updated_at,
+              company_name,
+            } = candidate;
 
-          return (
-            <Accordion
-              expanded={expanded === `panal${job_application_id}`}
-              onChange={handleChange(`panal${job_application_id}`)}
-              sx={{
-                width: "945px",
-                borderRadius: "8px",
-                boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.2)",
-                marginBottom: "16px",
-              }}
-            >
-              <AccordionSummaryStyled
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1bh-content"
-                id="panel1bh-header"
-              >
-                {/*------------------------------ Column 1 ------------------------------*/}
-                <Stack
-                  direction="column"
-                  justifyContent="center"
-                  alignItems="flex-start"
-                  width="auto"
-                  marginRight="20px"
-                  spacing={0}
+            return (
+              <>
+                <Accordion
+                  expanded={expanded === `panal${job_application_id}`}
+                  onChange={handleChange(`panal${job_application_id}`)}
+                  sx={{
+                    width: "945px",
+                    borderRadius: "8px",
+                    boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.2)",
+                    marginBottom: "16px",
+                  }}
                 >
-                  <Typography variant="h6">{name}</Typography>
+                  <AccordionSummaryStyled
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1bh-content"
+                    id="panel1bh-header"
+                  >
+                    {/*------------------------------ Column 1 ------------------------------*/}
+                    <Stack
+                      direction="column"
+                      justifyContent="center"
+                      alignItems="flex-start"
+                      width="auto"
+                      spacing={0}
+                    >
+                      <Typography variant="h6">{name}</Typography>
 
+                      <Stack
+                        color="info.main"
+                        direction="row"
+                        justifyContent="flex-start"
+                        alignItems="center"
+                        spacing={0}
+                        sx={{
+                          "& .MuiSvgIcon-root": {
+                            fontSize: 20,
+                          },
+                        }}
+                      >
+                        <Button
+                          href={linkedin}
+                          target="_blank"
+                          variant="subtitle2"
+                          startIcon={<LinkedInIcon />}
+                          sx={{ padding: "0", textTransform: "none" }}
+                        >
+                          <Typography variant="subtitle2">
+                            {job_title}
+                          </Typography>
+                        </Button>
+                      </Stack>
+                    </Stack>
+                    {/*------------------------------ Column 2 ------------------------------*/}
+                    <Stack
+                      direction="column"
+                      justifyContent="center"
+                      alignItems={"center"}
+                      width="auto"
+                      height={"100%"}
+                      spacing={0}
+                      margin="10px 20px 0 0"
+                    >
+                      <Typography variant="caption" color="info.main">
+                        <Stack
+                          direction="row"
+                          justifyContent="flex-start"
+                          alignItems="center"
+                          spacing={0}
+                        >
+                          <MailOutlineIcon
+                            sx={{ marginRight: "6px", marginLeft: "10px" }}
+                          />
+                          {email}
+                        </Stack>
+                        <Stack
+                          direction="row"
+                          justifyContent="flex-start"
+                          alignItems="center"
+                          spacing={0}
+                        >
+                          <LocalPhoneIcon
+                            sx={{ marginRight: "6px", marginLeft: "10px" }}
+                          />
+                          {phone}
+                        </Stack>
+                      </Typography>
+                    </Stack>
+                    {/*------------------------------ Column 3 ------------------------------*/}
+                    <Stack
+                      direction="row"
+                      justifyContent="center"
+                      alignItems="center"
+                      spacing={0}
+                      color="secondary"
+                    >
+                      <SentStatus applyDate={applied_at} />
+                      {application_status === "Declined" && (
+                        <ReviewStatus
+                          status={application_status}
+                          declinedDate={declined_at}
+                        />
+                      )}
+                      {application_status !== "Declined" && (
+                        <ReviewStatus status={application_status} />
+                      )}
+                    </Stack>
+                    {/*------------------------------ Column 4 ------------------------------*/}
+                    <Stack
+                      color="info.main"
+                      margin="10px 0 0 20px"
+                      direction={"row"}
+                      justifyContent="center"
+                      alignItems={"center"}
+                    >
+                      {application_status.toLowerCase() === "waiting" && (
+                        <CloseButton
+                          variant="contained"
+                          color="background"
+                          sx={{ border: "1px solid #F48FB1" }}
+                          onClick={() => {
+                            handleChangeApplicationStatus(
+                              job_application_id,
+                              "Reviewing"
+                            );
+                            setIsLoading(true);
+                          }}
+                        >
+                          Mark as Started
+                        </CloseButton>
+                      )}
+                      {application_status.toLowerCase() === "reviewing" && (
+                        <CloseButton
+                          variant="contained"
+                          color="background"
+                          sx={{ border: "1px solid #F48FB1" }}
+                          direction={"row"}
+                          justifyContent="flex-end"
+                          alignItems={"center"}
+                          onClick={() => {
+                            handleChangeApplicationStatus(
+                              job_application_id,
+                              "Finished"
+                            );
+                            setIsLoading(true);
+                          }}
+                        >
+                          Mark as Finished
+                        </CloseButton>
+                      )}
+                      {application_status.toLowerCase() === "finished" && (
+                        <CloseButton
+                          disabled
+                          variant="contained"
+                          color="background"
+                        >
+                          Finished
+                        </CloseButton>
+                      )}
+                    </Stack>
+                  </AccordionSummaryStyled>
+                  <AccordionDetails
+                    sx={{ paddingBottom: "0", paddingTop: "0" }}
+                  >
+                    <Typography variant="overline" color="secondary">
+                      Last Updated on {applications_updated_at.slice(0, 10)}
+                    </Typography>
+                  </AccordionDetails>
+                  <AccordionDetails>
+                    <Typography variant="subtitle1" color="error.main">
+                      Professional experience
+                    </Typography>
+                    <Typography variant="body2">
+                      {applications_experience}
+                    </Typography>
+                  </AccordionDetails>
+                  <AccordionDetails>
+                    <Typography variant="subtitle1" color="error.main">
+                      Why are you interested in working at {company_name}
+                    </Typography>
+                    <Typography variant="body2">{interested_detail}</Typography>
+                  </AccordionDetails>
                   <Stack
-                    color="info.main"
                     direction="row"
-                    justifyContent="flex-start"
+                    justifyContent="center"
                     alignItems="center"
                     spacing={0}
-                    sx={{
-                      "& .MuiSvgIcon-root": {
-                        fontSize: 20,
-                      },
-                    }}
+                    padding="0 16px 16px 16px"
                   >
-                    <Button
-                      href={linkedin}
+                    <DownloadCvButton
+                      startIcon={<FileDownloadOutlinedIcon color="secondary" />}
+                      href={cv_url}
+                      download={name}
                       target="_blank"
-                      variant="subtitle2"
-                      startIcon={<LinkedInIcon />}
-                      sx={{ padding: "0", textTransform: "none" }}
+                      rel="noopener"
                     >
-                      <Typography variant="subtitle2">{job_title}</Typography>
-                    </Button>
+                      Download CV
+                    </DownloadCvButton>
                   </Stack>
-                </Stack>
-                {/*------------------------------ Column 2 ------------------------------*/}
-                <Stack
-                  direction="column"
-                  justifyContent="center"
-                  width="auto"
-                  spacing={0}
-                  margin="10px 20px 0 0"
-                >
-                  <Typography variant="caption" color="info.main">
-                    <Stack
-                      direction="row"
-                      justifyContent="flex-start"
-                      alignItems="center"
-                      spacing={0}
-                    >
-                      <MailOutlineIcon
-                        sx={{ marginRight: "6px", marginLeft: "10px" }}
-                      />
-                      {email}
-                    </Stack>
-                    <Stack
-                      direction="row"
-                      justifyContent="flex-start"
-                      alignItems="center"
-                      spacing={0}
-                    >
-                      <LocalPhoneIcon
-                        sx={{ marginRight: "6px", marginLeft: "10px" }}
-                      />
-                      {phone}
-                    </Stack>
-                  </Typography>
-                </Stack>
-                {/*------------------------------ Column 3 ------------------------------*/}
-                <Stack
-                  direction="row"
-                  justifyContent="center"
-                  alignItems="center"
-                  spacing={0}
-                  color="secondary"
-                >
-                  <SentStatus applyDate={applied_at} />
-                  {application_status === "Declined" && (
-                    <ReviewStatus
-                      status={application_status}
-                      declinedDate={declined_at}
-                    />
-                  )}
-                  {application_status !== "Declined" && (
-                    <ReviewStatus status={application_status} />
-                  )}
-                </Stack>
-                {/*------------------------------ Column 4 ------------------------------*/}
-                <Stack height="auto" color="info.main" margin="10px 0 0 20px">
-                  {application_status.toLowerCase() === "waiting" && (
-                    <CloseButton
-                      variant="contained"
-                      color="background"
-                      sx={{ border: "1px solid #F48FB1" }}
-                      onClick={() => {
-                        handleChangeApplicationStatus(
-                          job_application_id,
-                          "Reviewing"
-                        );
-                        setIsLoading(true);
-                      }}
-                    >
-                      Mark as Started
-                    </CloseButton>
-                  )}
-                  {application_status.toLowerCase() === "reviewing" && (
-                    <CloseButton
-                      variant="contained"
-                      color="background"
-                      sx={{ border: "1px solid #F48FB1" }}
-                      onClick={() => {
-                        handleChangeApplicationStatus(
-                          job_application_id,
-                          "Finished"
-                        );
-                        setIsLoading(true);
-                      }}
-                    >
-                      Mark as Finished
-                    </CloseButton>
-                  )}
-                  {application_status.toLowerCase() === "finished" && (
-                    <CloseButton
-                      disabled
-                      variant="contained"
-                      color="background"
-                    >
-                      Finished
-                    </CloseButton>
-                  )}
-                </Stack>
-              </AccordionSummaryStyled>
-              <AccordionDetails sx={{ paddingBottom: "0", paddingTop: "0" }}>
-                <Typography variant="overline" color="secondary">
-                  Last Updated on {applications_updated_at.slice(0, 10)}
-                </Typography>
-              </AccordionDetails>
-              <AccordionDetails>
-                <Typography variant="subtitle1" color="error.main">
-                  Professional experience
-                </Typography>
-                <Typography variant="body2">
-                  {applications_experience}
-                </Typography>
-              </AccordionDetails>
-              <AccordionDetails>
-                <Typography variant="subtitle1" color="error.main">
-                  Why are you interested in working at {company_name}
-                </Typography>
-                <Typography variant="body2">{interested_detail}</Typography>
-              </AccordionDetails>
-              <Stack
-                direction="row"
-                justifyContent="center"
-                alignItems="center"
-                spacing={0}
-                padding="0 16px 16px 16px"
-              >
-                <DownloadCvButton
-                  startIcon={<FileDownloadOutlinedIcon color="secondary" />}
-                  href={cv_url}
-                  download={name}
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Download CV
-                </DownloadCvButton>
-              </Stack>
-            </Accordion>
-          );
-        })}
+                </Accordion>
+              </>
+            );
+          })}
+        </div>
       </Box>
     </Box>
   );

@@ -37,6 +37,7 @@ export const SentStatus = (props) => {
         spacing={0}
         sx={{ marginLeft: "10px", marginRight: "10px" }}
         color="secondary"
+        width={"80px"}
       >
         <InnerStackFlex spacing={0.2} color="secondary">
           <EmailOutlinedIcon color="secondary" />
@@ -57,6 +58,7 @@ export const SentStatus = (props) => {
         spacing={0}
         sx={{ marginLeft: "10px", marginRight: "10px" }}
         color="secondary"
+        width={"80px"}
       >
         <InnerStackFlex spacing={0.2} color="secondary">
           <EmailOutlinedIcon color="secondary" />
@@ -77,6 +79,7 @@ export const SentStatus = (props) => {
         spacing={0}
         sx={{ marginLeft: "10px", marginRight: "10px" }}
         color="secondary"
+        width={"80px"}
       >
         <InnerStackFlex spacing={0.2} color="secondary">
           <EmailOutlinedIcon color="secondary" />
@@ -104,6 +107,7 @@ export const SentStatus = (props) => {
         spacing={0}
         sx={{ marginLeft: "10px", marginRight: "10px" }}
         color="secondary"
+        width={"80px"}
       >
         <InnerStackFlex spacing={0.2} color="secondary">
           <EmailOutlinedIcon color="secondary" />

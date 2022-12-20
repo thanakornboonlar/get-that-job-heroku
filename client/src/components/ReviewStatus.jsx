@@ -38,6 +38,7 @@ export const ReviewStatus = (props) => {
         spacing={0}
         sx={{ marginLeft: "10px", marginRight: "10px" }}
         color="secondary"
+        width={"80px"}
       >
         <InnerStackFlex spacing={0.2} color="secondary">
           <PauseCircleOutlineOutlinedIcon color="primary" />
@@ -54,7 +55,10 @@ export const ReviewStatus = (props) => {
   }
   if (status === "Reviewing") {
     return (
-      <OuterStackFlex sx={{ marginLeft: "10px", marginRight: "10px" }}>
+      <OuterStackFlex
+        sx={{ marginLeft: "10px", marginRight: "10px" }}
+        width={"80px"}
+      >
         <MarkEmailReadOutlinedIcon color="primary" />
         <Typography
           variant="caption"
@@ -68,7 +72,10 @@ export const ReviewStatus = (props) => {
   }
   if (status === "Finished") {
     return (
-      <OuterStackFlex sx={{ marginLeft: "10px", marginRight: "10px" }}>
+      <OuterStackFlex
+        sx={{ marginLeft: "10px", marginRight: "10px" }}
+        width={"80px"}
+      >
         <Stack>
           <MarkChatReadOutlinedIcon color="primary" />
         </Stack>
@@ -87,7 +94,10 @@ export const ReviewStatus = (props) => {
   }
   if (status === "Declined") {
     return (
-      <OuterStackFlex sx={{ marginLeft: "10px", marginRight: "10px" }}>
+      <OuterStackFlex
+        sx={{ marginLeft: "10px", marginRight: "10px" }}
+        width={"80px"}
+      >
         <Stack>
           <HighlightOffIcon color="error" />
         </Stack>

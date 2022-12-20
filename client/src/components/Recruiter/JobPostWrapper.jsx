@@ -53,11 +53,12 @@ export default function JobPostWrapper(props) {
   };
 
   const AccordionSummaryStyled = styled(AccordionSummary)(() => ({
-    "& .css-o4b71y-MuiAccordionSummary-content": {
+    "& .MuiAccordionSummary-content": {
       display: "flex",
       flexDirection: "row",
-      justifyContent: "space-between",
+      justifyContent: "center",
       alignItems: "center",
+      width: "100%",
     },
   }));
 
@@ -93,7 +94,7 @@ export default function JobPostWrapper(props) {
           direction="column"
           justifyContent="center"
           alignItems="flex-start"
-          width="315px"
+          width="100%"
           spacing={0}
         >
           <Typography variant="h6">{jobTitle}</Typography>
