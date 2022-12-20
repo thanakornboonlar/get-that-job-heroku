@@ -62,7 +62,6 @@ export const Textseacrh = styled(TextField)(({ theme }) => ({
   "& .css-1v0e5r1-MuiInputBase-root-MuiOutlinedInput-root": {
     width: "480px",
     height: "40px",
-    backgroundColor: "#FFFFFF",
   },
   "& .css-pmic0h-MuiFormControl-root-MuiTextField-root .css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input":
     { width: "480px" },
@@ -74,17 +73,15 @@ export const Textseacrh = styled(TextField)(({ theme }) => ({
   },
 
   "& .MuiOutlinedInput-root": {
+    backgroundColor: "#FFFFFF",
     "& fieldset": {
       border: "2px solid #F48FB1",
-      // borderColor: "#F48FB1",
     },
     "&:hover fieldset": {
       border: "2px solid #F48FB1",
-      // borderColor: "#F48FB1",
     },
     "&.Mui-focused fieldset": {
       border: "2px solid #F48FB1",
-      // borderColor: "#F48FB1",
     },
   },
 }));
