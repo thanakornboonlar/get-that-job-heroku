@@ -215,9 +215,9 @@ export function Createjobpost() {
                   border: "2px solid #F48FB1",
                 },
                 "& .MuiOutlinedInput-root": {
+                  backgroundColor: "#FFF",
                   "& fieldset": {
                     border: "2px solid #F48FB1",
-                    backgroundColor: "#FFF",
                   },
                   "&:hover fieldset": {
                     border: "2px solid #F48FB1",

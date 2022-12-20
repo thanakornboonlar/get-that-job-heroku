@@ -190,7 +190,10 @@ export const Datepic = styled(DatePicker)(() => ({
   },
 
   "& .css-sfqmct-MuiInputBase-root-MuiOutlinedInput-root": {
-    backgroundColor: "#fff",
+    // backgroundColor: "#fff",
+  },
+  "& .MuiOutlinedInput-root": {
+    backgroundColor: "#FFFFFF",
   },
   "& .MuiOutlinedInput-root:hover": {
     "& > fieldset": {
