@@ -103,6 +103,7 @@ export function Findjobssearch() {
             search by job title or company name
           </Typography>
           <Textseacrh
+            size="small"
             id="outlined-basic"
             variant="outlined"
             placeholder="manufacturing, sales, swim"
@@ -221,6 +222,7 @@ export function Findjobssearch() {
               }}
             >
               <Textseacrh1
+                size="small"
                 id="outlined-basic"
                 variant="outlined"
                 placeholder="min"
@@ -247,6 +249,7 @@ export function Findjobssearch() {
               <HorizontalRule sx={{ marginTop: "8px", marginLeft: "18px" }} />
 
               <Textseacrh1
+                size="small"
                 id="outlined-basic"
                 variant="outlined"
                 placeholder="max"
