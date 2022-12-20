@@ -113,7 +113,7 @@ export function Findjobssearch() {
             onChange={handlerSearchKeyword}
             InputProps={{
               startAdornment: (
-                <InputAdornment position="start">
+                <InputAdornment position="start" backgroundColor="#FFF">
                   <Search />
                 </InputAdornment>
               ),
