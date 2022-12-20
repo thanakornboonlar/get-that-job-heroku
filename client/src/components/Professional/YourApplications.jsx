@@ -82,11 +82,12 @@ export function YourApplications() {
   }));
 
   const AccordionSummaryStyled = styled(AccordionSummary)(() => ({
-    "& .css-o4b71y-MuiAccordionSummary-content": {
+    "& .MuiAccordionSummary-content": {
       display: "flex",
       flexDirection: "row",
-      justifyContent: "space-between",
+      justifyContent: "center",
       alignItems: "center",
+      width: "100%",
     },
   }));
 
@@ -211,24 +212,54 @@ export function YourApplications() {
                       expandIcon={<ExpandMoreIcon />}
                       aria-controls="panel1bh-content"
                       id="panel1bh-header"
-                      sx={{
-                        display: "flex",
-                        flexDirection: "row",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                      }}
                     >
                       <Stack
                         display="flex"
                         direction="row"
-                        justifyContent="flex-start"
+                        justifyContent="space-between"
                         alignItems="center"
-                        spacing={0}
-                        minWidth="300px"
+                        width="100%"
                       >
                         <Stack
                           display="flex"
                           direction="row"
+                          justifyContent="flex-start"
+                          alignItems="center"
+                          spacing={0}
+                          minWidth="300px"
+                        >
+                          <Stack
+                            display="flex"
+                            direction="row"
+                            justifyContent="flex-start"
+                            alignItems="center"
+                            spacing={0}
+                            sx={{
+                              "& .MuiSvgIcon-root": {
+                                fontSize: 20,
+                              },
+                            }}
+                          >
+                            <Stack sx={{ width: "60px", height: "60px" }}>
+                              <img
+                                alt="logo"
+                                src={applications.logo_url}
+                                width="100%"
+                                height="100%"
+                              />
+                            </Stack>
+                            <Stack sx={{ marginLeft: "18px" }}>
+                              <Typography variant="h6" sx={{}}>
+                                {applications.job_title}
+                              </Typography>
+                              <Typography variant="subtitle2" color="secondary">
+                                {applications.company_name}
+                              </Typography>
+                            </Stack>
+                          </Stack>
+                        </Stack>
+                        <Stack
+                          direction="column"
                           justifyContent="flex-start"
                           alignItems="center"
                           spacing={0}
@@ -238,95 +269,71 @@ export function YourApplications() {
                             },
                           }}
                         >
-                          <Stack sx={{ width: "60px", height: "60px" }}>
-                            <img
-                              alt="logo"
-                              src={applications.logo_url}
-                              width="100%"
-                              height="100%"
-                            />
-                          </Stack>
-                          <Stack sx={{ marginLeft: "18px" }}>
-                            <Typography variant="h6" sx={{}}>
-                              {applications.job_title}
-                            </Typography>
-                            <Typography variant="subtitle2" color="secondary">
-                              {applications.company_name}
-                            </Typography>
-                          </Stack>
+                          <Typography
+                            variant="caption"
+                            color="info.main"
+                            sx={{}}
+                          >
+                            <Stack
+                              direction="row"
+                              justifyContent="flex-start"
+                              alignItems="center"
+                              spacing={0}
+                              sx={{
+                                "& .MuiSvgIcon-root": {
+                                  fontSize: 20,
+                                },
+                              }}
+                            >
+                              <CategoryIcon categoryName={applications.name} />
+                              {applications.name}
+                              <DateRangeOutlinedIcon
+                                sx={{ marginRight: "6px", marginLeft: "10px" }}
+                              />
+                              {applications.type}
+                            </Stack>
+                            <Stack
+                              direction="row"
+                              justifyContent="flex-start"
+                              alignItems="center"
+                              spacing={0}
+                              sx={{
+                                "& .MuiSvgIcon-root": {
+                                  fontSize: 20,
+                                },
+                              }}
+                            >
+                              <MonetizationOnOutlinedIcon
+                                sx={{ marginRight: "6px" }}
+                              />
+                              {Math.floor(
+                                applications.min_salary / 1000
+                              ).toFixed(1)}
+                              k -{" "}
+                              {Math.floor(
+                                applications.max_salary / 1000
+                              ).toFixed(1)}
+                              k
+                              <PostedStatus
+                                postDate={applications.jobs_created_at}
+                                letter={"lowercase"}
+                              />
+                            </Stack>
+                          </Typography>
                         </Stack>
-                      </Stack>
-                      <Stack
-                        direction="column"
-                        justifyContent="flex-start"
-                        alignItems="center"
-                        spacing={0}
-                        sx={{
-                          "& .MuiSvgIcon-root": {
-                            fontSize: 20,
-                          },
-                        }}
-                      >
-                        <Typography variant="caption" color="info.main" sx={{}}>
-                          <Stack
-                            direction="row"
-                            justifyContent="flex-start"
-                            alignItems="center"
-                            spacing={0}
-                            sx={{
-                              "& .MuiSvgIcon-root": {
-                                fontSize: 20,
-                              },
-                            }}
-                          >
-                            <CategoryIcon categoryName={applications.name} />
-                            {applications.name}
-                            <DateRangeOutlinedIcon
-                              sx={{ marginRight: "6px", marginLeft: "10px" }}
-                            />
-                            {applications.type}
-                          </Stack>
-                          <Stack
-                            direction="row"
-                            justifyContent="flex-start"
-                            alignItems="center"
-                            spacing={0}
-                            sx={{
-                              "& .MuiSvgIcon-root": {
-                                fontSize: 20,
-                              },
-                            }}
-                          >
-                            <MonetizationOnOutlinedIcon
-                              sx={{ marginRight: "6px" }}
-                            />
-                            {Math.floor(applications.min_salary / 1000).toFixed(
-                              1
-                            )}
-                            k -{" "}
-                            {Math.floor(applications.max_salary / 1000).toFixed(
-                              1
-                            )}
-                            k
-                            <PostedStatus
-                              postDate={applications.jobs_created_at}
-                              letter={"lowercase"}
-                            />
-                          </Stack>
-                        </Typography>
-                      </Stack>
 
-                      <Stack
-                        direction="row"
-                        justifyContent="center"
-                        alignItems="center"
-                        spacing={0}
-                      >
-                        <SentStatus applyDate={applications.applied_at} />
-                        <ReviewStatus
-                          status={applications.application_status}
-                          declinedDate={applications.declined_at}
-                        />
+                        <Stack
+                          direction="row"
+                          justifyContent="center"
+                          alignItems="center"
+                          spacing={0}
+                        >
+                          <SentStatus applyDate={applications.applied_at} />
+                          <ReviewStatus
+                            status={applications.application_status}
+                            declinedDate={applications.declined_at}
+                          />
+                        </Stack>
                       </Stack>
                     </AccordionSummaryStyled>
                     <AccordionDetails
