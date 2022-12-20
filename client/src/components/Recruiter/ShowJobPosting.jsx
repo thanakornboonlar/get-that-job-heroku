@@ -23,13 +23,14 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import JobPostWrapper from "./JobPostWrapper";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { SentStatus } from "../SentStatus";
 import { ReviewStatus } from "../ReviewStatus";
 import { DownloadCvButton } from "../Professional/styles";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 
 export function ShowJobPostings() {
+  const navigate = useNavigate();
   const { getUserData, state, isUserLoading, setIsUserLoading } = useAuth();
   const {
     closedPost,
@@ -148,7 +149,9 @@ export function ShowJobPostings() {
               color="info"
             />
           }
-          href="/recruiter/jobpost"
+          onClick={() => {
+            navigate("/recruiter/jobpost");
+          }}
         >
           BACK
         </CloseButton>
