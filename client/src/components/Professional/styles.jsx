@@ -32,28 +32,19 @@ export const Textinput = styled(Autocomplete)(({ theme }) => ({
   },
 
   "& .MuiOutlinedInput-root": {
+    backgroundColor: "#FFFFFF",
+    width: "280px",
+    height: "40px",
     "& fieldset": {
       border: "2px solid #F48FB1",
-      // borderColor: "#F48FB1",
     },
     "&:hover fieldset": {
       border: "2px solid #F48FB1",
-      // borderColor: "#F48FB1",
     },
     "&.Mui-focused fieldset": {
       border: "2px solid #F48FB1",
-      // borderColor: "#F48FB1",
     },
   },
-
-  "& .css-uyzgbr-MuiInputBase-root-MuiOutlinedInput-root": {
-    width: "280px",
-    height: "40px",
-    backgroundColor: "#FFFFFF",
-  },
-  // "& .css-1d3z3hw-MuiOutlinedInput-notchedOutline": {
-  //   border: "2px solid #F48FB1",
-  // },
 
   height: "60px",
   color: "primary focused",
@@ -86,11 +77,6 @@ export const Textseacrh = styled(TextField)(({ theme }) => ({
   },
 }));
 export const Textseacrh1 = styled(TextField)(({ theme }) => ({
-  "& .css-1v0e5r1-MuiInputBase-root-MuiOutlinedInput-root": {
-    width: "120px",
-    height: "40px",
-    backgroundColor: "#FFFFFF",
-  },
   height: "60px",
   color: "primary focused",
 
@@ -99,17 +85,17 @@ export const Textseacrh1 = styled(TextField)(({ theme }) => ({
   },
 
   "& .MuiOutlinedInput-root": {
+    width: "120px",
+    height: "40px",
+    backgroundColor: "#FFFFFF",
     "& fieldset": {
       border: "2px solid #F48FB1",
-      // borderColor: "#F48FB1",
     },
     "&:hover fieldset": {
       border: "2px solid #F48FB1",
-      // borderColor: "#F48FB1",
     },
     "&.Mui-focused fieldset": {
       border: "2px solid #F48FB1",
-      // borderColor: "#F48FB1",
     },
   },
 }));
@@ -121,6 +107,9 @@ export const Textseacrh2 = styled(TextField)(({ theme }) => ({
     border: "2px solid #F48FB1",
   },
   "& .MuiOutlinedInput-root": {
+    width: "120px",
+    height: "40px",
+    backgroundColor: "#FFFFFF",
     "& fieldset": {
       border: "2px solid #F48FB1",
     },

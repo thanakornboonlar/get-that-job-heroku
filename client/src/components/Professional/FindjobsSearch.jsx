@@ -190,11 +190,7 @@ export function Findjobssearch() {
                   },
               }}
               renderInput={(params) => (
-                <TextField
-                  {...params}
-                  label=""
-                  placeholder="Select a category"
-                />
+                <TextField {...params} label="" placeholder="Select a Type" />
               )}
             />
           </Typography>
