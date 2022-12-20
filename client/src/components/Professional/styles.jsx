@@ -34,6 +34,7 @@ export const Textinput = styled(Autocomplete)(({ theme }) => ({
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
       border: "2px solid #F48FB1",
+      backgroundColor: "#FFF",
       // borderColor: "#F48FB1",
     },
     "&:hover fieldset": {
@@ -76,6 +77,7 @@ export const Textseacrh = styled(TextField)(({ theme }) => ({
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
       border: "2px solid #F48FB1",
+      backgroundColor: "#FFF",
       // borderColor: "#F48FB1",
     },
     "&:hover fieldset": {
@@ -104,6 +106,7 @@ export const Textseacrh1 = styled(TextField)(({ theme }) => ({
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
       border: "2px solid #F48FB1",
+      backgroundColor: "#FFF",
       // borderColor: "#F48FB1",
     },
     "&:hover fieldset": {
@@ -126,6 +129,7 @@ export const Textseacrh2 = styled(TextField)(({ theme }) => ({
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
       border: "2px solid #F48FB1",
+      backgroundColor: "#FFF",
     },
     "&:hover fieldset": {
       border: "2px solid #F48FB1",
@@ -197,6 +201,7 @@ export const Categoryinput = styled(Autocomplete)(({ theme }) => ({
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
       border: "2px solid #F48FB1",
+      backgroundColor: "#FFF",
     },
     "&:hover fieldset": {
       border: "2px solid #F48FB1",
