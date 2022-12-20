@@ -33,7 +33,6 @@ export function Findjobssearch() {
     followJobApplication,
   } = usePosts();
   const { state, getUserData, isUserLoading } = useAuth();
-
   const handlerSearchSalary = (e, type) => {
     setSalary({ ...salary, [type]: e.target.value });
     setIsLoading(true);
@@ -51,13 +50,14 @@ export function Findjobssearch() {
   useEffect(() => {
     const timer = setTimeout(() => {
       getUserData();
+      const userId = state.user.id;
       getSearch(
         keyword,
         categoryValue,
         salary.min,
         salary.max,
         typeValue,
-        state.user["id"]
+        userId
       );
       setIsFollow(false);
     }, 800);
