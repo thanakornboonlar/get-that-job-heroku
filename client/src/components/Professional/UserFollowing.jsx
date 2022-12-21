@@ -6,14 +6,20 @@ import { useAuth } from "../../contexts/authentication.jsx";
 import JobWrapper from "./JobWrapper";
 
 const UserFollowing = () => {
-  const { isLoading, getFollow, follow, followJob, followJobApplication } =
-    usePosts();
+  const {
+    isLoading,
+    setIsLoading,
+    getFollow,
+    follow,
+    followJob,
+    followJobApplication,
+  } = usePosts();
   const { state, getUserData, isUserLoading } = useAuth();
   const [isFollow, setIsFollow] = useState(true);
 
   const handlerFollow = (jobId) => {
+    setIsLoading(true);
     followJobApplication(jobId, state.user["id"]);
-    setIsFollow(false);
   };
 
   useEffect(() => {
