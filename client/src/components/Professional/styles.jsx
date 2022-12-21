@@ -181,6 +181,7 @@ export const Categoryinput = styled(Autocomplete)(({ theme }) => ({
     border: "2px solid #F48FB1",
   },
   "& .MuiOutlinedInput-root": {
+    backgroundColor: "#FFFFFF",
     "& fieldset": {
       border: "2px solid #F48FB1",
     },
@@ -194,7 +195,6 @@ export const Categoryinput = styled(Autocomplete)(({ theme }) => ({
   "& .css-uyzgbr-MuiInputBase-root-MuiOutlinedInput-root": {
     width: "300px",
     height: "45px",
-    backgroundColor: "#FFFFFF",
   },
   "& .css-1d3z3hw-MuiOutlinedInput-notchedOutline": {
     border: "2px solid #F48FB1",
