@@ -172,38 +172,24 @@ export const ValidateTypography = styled(Typography)(() => ({
 export const Datepic = styled(DatePicker)(() => ({
   marginBottom: "16px",
 
-  "& .css-otaojw-MuiFormControl-root-MuiTextField-root .css-sfqmct-MuiInputBase-root-MuiOutlinedInput-root":
-    { Height: "25px", width: "350px" },
-  "& .css-uyzgbr-MuiInputBase-root-MuiOutlinedInput-root": {
-    borderRadius: "8px",
-    width: "350px",
-  },
-  "& .css-1d3z3hw-MuiOutlinedInput-notchedOutline": {
+  "& label.Mui-focused": {
     border: "2px solid #F48FB1",
   },
-  "& .css-y2lyk9-MuiFormLabel-root-MuiInputLabel-root": {
-    color: "gray",
-    top: "-15%",
-  },
-  "& .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input": {
-    padding: "10px 14px",
-  },
-
-  "& .css-sfqmct-MuiInputBase-root-MuiOutlinedInput-root": {
-    // backgroundColor: "#fff",
+  "& .MuiInput-underline:after": {
+    border: "2px solid #F48FB1",
   },
   "& .MuiOutlinedInput-root": {
     backgroundColor: "#FFFFFF",
-  },
-  "& .MuiOutlinedInput-root:hover": {
-    "& > fieldset": {
-      borderColor: "#F48FB1",
+    "& fieldset": {
+      border: "2px solid #F48FB1",
+    },
+    "&:hover fieldset": {
+      border: "2px solid #F48FB1",
+    },
+    "&.Mui-focused fieldset": {
+      border: "2px solid #F48FB1",
     },
   },
-  "& .css-sfqmct-MuiInputBase-root-MuiOutlinedInput-root.Mui-error .MuiOutlinedInput-notchedOutline":
-    {
-      borderColor: "#F48FB1",
-    },
 }));
 // ----buttono to hide password
 export const IconButton = styled(ButtonUnstyled)(

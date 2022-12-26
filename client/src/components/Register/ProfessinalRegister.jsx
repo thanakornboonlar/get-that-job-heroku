@@ -383,6 +383,7 @@ const ProfessionalRegister = () => {
               <InputLabelStyle>BIRTHDAY</InputLabelStyle>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <Datepic
+                  size="small"
                   value={value}
                   color="primary"
                   focused
@@ -395,7 +396,9 @@ const ProfessionalRegister = () => {
                     setValue(newValue);
                   }}
                   maxDate={dayjs(yearmax)}
-                  renderInput={(params) => <TextField {...params} />}
+                  renderInput={(params) => (
+                    <TextField size="small" {...params} />
+                  )}
                 />
               </LocalizationProvider>
 
