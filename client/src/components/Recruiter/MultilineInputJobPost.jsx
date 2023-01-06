@@ -53,7 +53,7 @@ const MultilineInputJobPost = (props) => {
         rows={3}
         helperText={"" || message()}
         FormHelperTextProps={{
-          style: { color: isValid || value === "" ? "#8E8E8E" : "#F48FB1" },
+          style: { color: isValid ? "#8E8E8E" : "#F48FB1" },
         }}
       />
     </>

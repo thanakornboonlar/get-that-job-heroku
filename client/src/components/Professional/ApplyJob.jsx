@@ -110,18 +110,19 @@ function Applyjob(props) {
   const handlerApply = (event) => {
     const checkExperience = validateExperience(apply.experience);
     const checkInterest = validateInterest(apply.interest);
-    if (checkExperience && checkInterest) {
-      setIsLoading(true);
-      const formData = new FormData();
-      event.preventDefault();
-      const data = {
-        ...apply,
-      };
-      for (let key in data) {
-        formData.append(key, data[key]);
-      }
-      Apply(jobId, formData);
-    }
+    console.log(checkExperience, checkInterest);
+    // if (checkExperience && checkInterest) {
+    //   setIsLoading(true);
+    //   const formData = new FormData();
+    //   event.preventDefault();
+    //   const data = {
+    //     ...apply,
+    //   };
+    //   for (let key in data) {
+    //     formData.append(key, data[key]);
+    //   }
+    //   Apply(jobId, formData);
+    // }
   };
 
   const DisplayStyle = styled(Stack)(() => ({
