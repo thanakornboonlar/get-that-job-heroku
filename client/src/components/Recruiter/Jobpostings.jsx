@@ -60,7 +60,7 @@ export function Jobpostings() {
     const timer = setTimeout(() => {
       getUserData();
       selectPost(state.user["id"], type);
-    }, 800);
+    }, 80);
     return () => clearTimeout(timer);
   }, [isLoading, setIsLoading, isUserLoading]);
 

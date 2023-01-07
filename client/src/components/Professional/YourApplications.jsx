@@ -66,7 +66,7 @@ export function YourApplications() {
       getUserData();
       getJobApplications(state.user["id"], selectedFilterApplicationStatus);
       setIsFilter(false);
-    }, 800);
+    }, 80);
     return () => clearTimeout(timer);
   }, [isUserLoading, isFilter, isLoading, setIsLoading]);
 

@@ -77,7 +77,7 @@ function Applyjob(props) {
         experience: state.user["profile"]["experience"],
         professionalId: state.user["id"],
       });
-    }, 800);
+    }, 80);
 
     return () => clearTimeout(timer);
   }, [isLoading]);

@@ -106,7 +106,7 @@ const UpdateProfessionalProfile = () => {
       if (userData.email !== "") {
         setIsLoadingProfile(false);
       }
-    }, 800);
+    }, 80);
 
     return () => clearTimeout(timer);
   }, [isLoading, isUserLoading, isLoadingProfile, submit]);

@@ -34,7 +34,7 @@ export function Createjobpost() {
     const timer = setTimeout(() => {
       getUserData();
       setInfo({ ...info, recruiterId: state.user["id"] });
-    }, 800);
+    }, 80);
     return () => clearTimeout(timer);
   }, [isUserLoading]);
 

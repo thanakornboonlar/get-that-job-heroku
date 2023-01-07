@@ -60,7 +60,7 @@ export function Findjobssearch() {
         userId
       );
       setIsFollow(false);
-    }, 800);
+    }, 80);
     return () => clearTimeout(timer);
   }, [isLoading, setIsLoading, isUserLoading, isFollow]);
 

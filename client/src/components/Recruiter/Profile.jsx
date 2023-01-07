@@ -54,7 +54,7 @@ export default function Profile() {
 
       setImg(profile.logo_url);
       setIsFetch(false);
-    }, 800);
+    }, 80);
 
     return () => clearTimeout(timer);
   }, [isLoading, isUserLoading, isFetch, isLoadingProfile]);

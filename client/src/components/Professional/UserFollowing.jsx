@@ -27,7 +27,7 @@ const UserFollowing = () => {
       getUserData();
       const userId = state.user.id;
       getFollow(userId);
-    }, 800);
+    }, 80);
     return () => clearTimeout(timer);
   }, [isLoading, isUserLoading, isFollow]);
 
