@@ -1,47 +1,67 @@
 import * as React from "react";
-import { Button } from "@mui/material";
+import {
+  Button,
+  Hidden,
+  IconButton,
+  MenuItem,
+  Typography,
+} from "@mui/material";
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
 import { useNavigate } from "react-router-dom";
+import MenuIcon from "@mui/icons-material/Menu";
+import { useState } from "react";
+import Menu from "@mui/material/Menu";
+import { Stack } from "@mui/system";
+import { SignUpButton, LogInButton } from "./NavButton";
 
 export default function NavBox() {
   const navigate = useNavigate();
 
+  const [anchorElNav, setAnchorElNav] = useState(null);
+
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
   return (
     <AppBar position="fixed" color="background">
-      <Box
+      {/* <Stack
+        direction={"row"}
+        justifyContent="space-around"
+        alignItems={"center"}
+        height="64px"
+        color="background.paper"
+      > */}
+      {/*  Get That job logo */}
+      <Stack
+        direction={"row"}
+        justifyContent={{ xs: "space-between", sm: "space-around" }}
+        alignItems={"center"}
+        height="64px"
+        width={"100vw"}
         sx={{
-          display: "flex",
-          direction: "row",
-          justifyContent: "space-around",
-          width: "auto",
-          height: "64px",
-          color: "background.paper",
+          alignItems: "center",
+          boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.2)",
         }}
       >
-        {/*  Get That job logo */}
+        <Box onClick={() => navigate("/")} girt marginLeft={2}>
+          <img src="images/gtj-logo.png" alt="get that job logo" />
+        </Box>
+
+        {/* Sign Up and Login button */}
+
         <Box
           sx={{
             display: "flex",
-            width: "100vw",
-            height: "64px",
-            justifyContent: "space-around",
-            alignItems: "center",
-            boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.2)",
           }}
         >
-          <Box onClick={() => navigate("/")} girt>
-            <img src="images/gtj-logo.png" alt="get that job logo" />
-          </Box>
-
-          {/* Sign Up and Login button */}
-
-          <Box
-            sx={{
-              display: "flex",
-            }}
-          >
-            <Box>
+          <Box>
+            <Hidden smDown>
               <Button
                 startIcon={
                   <svg
@@ -102,10 +122,47 @@ export default function NavBox() {
               >
                 Login
               </Button>
-            </Box>
+            </Hidden>
+            <Hidden smUp>
+              <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+                <IconButton
+                  size="large"
+                  edge="start"
+                  color="inherit"
+                  aria-label="menu"
+                  onClick={handleOpenNavMenu}
+                >
+                  <MenuIcon color="primary" />
+                </IconButton>
+                <Menu
+                  id="menu-appbar"
+                  sx={{ mt: "45px" }}
+                  anchorEl={anchorElNav}
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  open={Boolean(anchorElNav)}
+                  onClose={handleCloseNavMenu}
+                >
+                  <MenuItem key={"Login"} onClick={handleCloseNavMenu}>
+                    <SignUpButton />
+                  </MenuItem>
+                  <MenuItem key={"Login"} onClick={handleCloseNavMenu}>
+                    <LogInButton />
+                  </MenuItem>
+                </Menu>
+              </Box>
+            </Hidden>
           </Box>
         </Box>
-      </Box>
+      </Stack>
+      {/* </Stack> */}
     </AppBar>
   );
 }
